@@ -596,7 +596,7 @@ async function getReferencedEpics({ octokit }) {
 }
 
 async function updateEpic({ octokit, epic }) {
-  const autoCloseEpic = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('auto-close-epic', { required: false });
+  const autoCloseEpic = JSON.parse(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('auto-close-epic', { required: false }).toLowerCase());
 
   const issueNumber = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.issue.number;
   const issueState = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.issue.state;
