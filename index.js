@@ -21,7 +21,7 @@ async function getReferencedEpics({ octokit }) {
 }
 
 async function updateEpic({ octokit, epic }) {
-  const autoCloseEpic = core.getInput('auto-close-epic', { required: false });
+  const autoCloseEpic = JSON.parse(core.getInput('auto-close-epic', { required: false }).toLowerCase());
 
   const issueNumber = github.context.payload.issue.number;
   const issueState = github.context.payload.issue.state;
